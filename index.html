@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chosen Eleven - Premium Football Jerseys</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #e8e8e8;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            position: relative;
+            width: 24px;
+            height: 32px;
+        }
+
+        .logo-eleven {
+            display: flex;
+            gap: 8px;
+            height: 100%;
+        }
+
+        .logo-stroke {
+            width: 2.5px;
+            height: 32px;
+            background: #f8f3ed;
+        }
+
+        .logo-text {
+            font-size: 10px;
+            font-weight: 100;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #f8f3ed;
+        }
+
+        .contact-btn {
+            padding: 10px 25px;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: #d4af37;
+            color: #0a0a0a;
+        }
+
+        /* Hero */
+        .hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            position: relative;
+            margin-top: 72px;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 100;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #f8f3ed;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #d4af37;
+        }
+
+        /* Products */
+        .products {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
+        }
+
+        .product-card {
+            background: rgba(20, 20, 20, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #141414 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .image-placeholder {
+            width: 200px;
+            height: 250px;
+            background: radial-gradient(ellipse, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-name {
+            font-size: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .product-details {
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .product-price {
+            font-size: 24px;
+            color: #d4af37;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 18px;
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: #d4af37;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            background: #d4af37;
+            color: #0a0a0a;
+            border-color: #d4af37;
+        }
+
+        .buy-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .sold-badge {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            padding: 8px 16px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 60px 40px;
+            text-align: center;
+            background: rgba(20, 20, 20, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            font-weight: 200;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .contact p {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .contact a {
+            color: #d4af37;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact a:hover {
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 32px;
+                letter-spacing: 4px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .nav-container {
+                padding: 15px 20px;
+            }
+
+            .products {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-mark">
+                    <div class="logo-eleven">
+                        <div class="logo-stroke"></div>
+                        <div class="logo-stroke"></div>
+                    </div>
+                </div>
+                <span class="logo-text">Chosen Eleven</span>
+            </div>
+            <a href="#contatti" class="contact-btn">Contattaci</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Collezione Esclusiva</h1>
+            <p>Due pezzi unici, selezionati con cura</p>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products">
+        <div class="section-title">Disponibile Ora</div>
+        
+        <div class="product-grid">
+            <!-- MAGLIA 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- Sostituisci con: <img src="maglia1.jpg" alt="Maglia 1"> -->
+                    <div class="image-placeholder">La tua foto qui</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Vintage Jersey 1990s</div>
+                    <div class="product-details">
+                        <strong>Taglia:</strong> M<br>
+                        <strong>Condizioni:</strong> Ottime<br>
+                        <strong>Origine:</strong> Italia<br>
+                        <strong>Dettagli:</strong> Maglia vintage originale anni '90, tessuto premium, dettagli autentici
+                    </div>
+                    <div class="product-price">€ 189,00</div>
+                    <button class="buy-btn" onclick="contactForProduct('Vintage Jersey 1990s')">
+                        Acquista Ora
+                    </button>
+                </div>
+            </div>
+
+            <!-- MAGLIA 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- Sostituisci con: <img src="maglia2.jpg" alt="Maglia 2"> -->
+                    <div class="image-placeholder">La tua foto qui</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Classic Edition 2000s</div>
+                    <div class="product-details">
+                        <strong>Taglia:</strong> L<br>
+                        <strong>Condizioni:</strong> Come nuova<br>
+                        <strong>Origine:</strong> Inghilterra<br>
+                        <strong>Dettagli:</strong> Edizione limitata primi anni 2000, design iconico
+                    </div>
+                    <div class="product-price">€ 149,00</div>
+                    <button class="buy-btn" onclick="contactForProduct('Classic Edition 2000s')">
+                        Acquista Ora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contatti">
+        <h2>Come Acquistare</h2>
+        <p>Per acquistare una delle nostre maglie esclusive, contattaci direttamente:</p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/393XXXXXXXXX" target="_blank">+39 3XX XXX XXXX</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@choseneleven.com">info@choseneleven.com</a></p>
+        <p><strong>Instagram:</strong> <a href="https://instagram.com/choseneleven" target="_blank">@choseneleven</a></p>
+        <p style="margin-top: 30px; font-size: 12px;">
+            Pagamento sicuro tramite PayPal o bonifico bancario.<br>
+            Spedizione tracciata in tutta Italia.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2024 Chosen Eleven · Premium Football Jerseys
+    </footer>
+
+    <script>
+        function contactForProduct(productName) {
+            // Modifica con il tuo numero WhatsApp (formato: 393XXXXXXXXX)
+            const phoneNumber = '393XXXXXXXXX';
+            const message = `Ciao! Sono interessato a: ${productName}`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
